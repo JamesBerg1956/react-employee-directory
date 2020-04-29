@@ -1,7 +1,9 @@
 // import React component
 import React, { Component } from "react";
-// import Thead component
+// import Tr component
 import Tr from "./Tr"
+// import Thead component
+import Thead from "./Thead"
 
 // START Tale class component
 class Table extends Component{
@@ -26,13 +28,8 @@ class Table extends Component{
     render() {
         return (
             <table>
-                {/* TODO: create Thead compenent */}
                 <thead>
-                    <tr>
-                        {this.state.columns.map(column => (
-                        <td>{column}</td>  
-                        ))}
-                    </tr>
+                    <Thead columns={this.state.columns} />
                 </thead>
                 <tbody>
                     {this.state.employees.map(employee => (
