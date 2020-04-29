@@ -1,5 +1,7 @@
 // import React component
 import React, { Component } from "react";
+// import Thead component
+import Tbody from "./Tbody"
 
 // START Tale class component
 class Table extends Component{
@@ -30,6 +32,11 @@ class Table extends Component{
                       <td>{column}</td>  
                     ))}
                 </thead>
+                <tbody>
+                    {this.state.employees.map(employee => (
+                      <Tbody employee={employee} />  
+                    ))}
+                </tbody>
             </table>
         );
     }
