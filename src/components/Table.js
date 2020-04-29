@@ -28,9 +28,11 @@ class Table extends Component{
             <table>
                 {/* TODO: create Thead compenent */}
                 <thead>
-                    {this.state.columns.map(column => (
-                      <td>{column}</td>  
-                    ))}
+                    <tr>
+                        {this.state.columns.map(column => (
+                        <td>{column}</td>  
+                        ))}
+                    </tr>
                 </thead>
                 <tbody>
                     {this.state.employees.map(employee => (
