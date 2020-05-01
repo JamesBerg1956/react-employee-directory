@@ -24,18 +24,16 @@ class Table extends Component{
     state = {
         employees: this.props.employees,
         columns: Object.keys(this.props.employees[0]),
-        searchTerm: '',
     };
     // END define state objects
 
     // START handleSearch method
     handleSearchChange(event) {
 
+        // get input value
         const searchTerm = event.target.value;
+        // get input name
         const searchName = event.target.name;
-        
-        // set state to input value
-        this.setState({searchTerm});    
 
         // if the search term is not null
         if(searchTerm){
@@ -55,20 +53,19 @@ class Table extends Component{
     // START Table class render method
     render() {
 
-        const searchTerm = this.state.searchTerm;
-        const searchName = "first_name";
-
         return (
 
             <React.Fragment>
-
-                <Search 
-                    searchTerm={searchTerm}
-                    searchName={searchName}
-                    handleSearchChange={this.handleSearchChange}
-                />
             
                 <table>
+                    {this.state.columns.map(column => (
+                        <td>
+                            <Search 
+                                searchName={column}
+                                handleSearchChange={this.handleSearchChange} 
+                            />
+                        </td>
+                    ))} 
                     <thead>
                         <Thead columns={this.state.columns} />
                     </thead>
