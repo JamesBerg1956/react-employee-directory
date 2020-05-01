@@ -24,6 +24,10 @@ class Table extends Component{
     };
     // END define state objects
 
+    // TODO: create HandleSearch method
+
+    // TODO: create HandleSort method
+
     // START Table class render method
     render() {
         return (
