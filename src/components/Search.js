@@ -1,12 +1,39 @@
 // import React component
 import React, { Component } from "react";
 
-function Search(props){
+class Search extends React.Component{
+    constructor(props){
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+        //this.state = {searchTerm: ''};
+    }
 
-    return(
-        <div>Hello World</div>
-    );
+    handleChange(e){
+        this.props.handleSearchChange(e.target.value);
+    }
+
+    render(){
+
+        const searchTerm = this.props.searchTerm;
+
+        return (
+
+            <React.Fragment>
+
+            <input
+                value={searchTerm}
+                onChange={this.handleChange}
+            />  
+
+            {searchTerm}
+
+            </React.Fragment>
+
+        );
+      
+    }
 
 }
+
 
 export default Search;
