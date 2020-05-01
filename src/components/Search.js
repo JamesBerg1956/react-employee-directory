@@ -15,12 +15,14 @@ class Search extends React.Component{
     render(){
 
         const searchTerm = this.props.searchTerm;
+        const searchName = this.props.searchName;
 
         return (
 
             <React.Fragment>
 
             <input
+                name={searchName}
                 value={searchTerm}
                 onChange={this.handleChange}
             />  

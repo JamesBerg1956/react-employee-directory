@@ -24,7 +24,7 @@ class Table extends Component{
     state = {
         employees: this.props.employees,
         columns: Object.keys(this.props.employees[0]),
-        searchTerm: ''
+        searchTerm: '',
     };
     // END define state objects
 
@@ -32,14 +32,15 @@ class Table extends Component{
     handleSearchChange(event) {
 
         const searchTerm = event.target.value;
-
+        const searchName = event.target.name;
+        
         // set state to input value
         this.setState({searchTerm});    
 
         // if the search term is not null
         if(searchTerm){
             // filter this.state.employees to include only searchTerm
-            this.setState({employees: this.props.employees.filter(employee => employee.first_name.includes(searchTerm))});
+            this.setState({employees: this.props.employees.filter(employee => employee[searchName].includes(searchTerm))});
         }
         else {
             // set state of employees back to passed prop
@@ -54,7 +55,8 @@ class Table extends Component{
     // START Table class render method
     render() {
 
-        const searchTerm = this.state.searchTerm
+        const searchTerm = this.state.searchTerm;
+        const searchName = "first_name";
 
         return (
 
@@ -62,6 +64,7 @@ class Table extends Component{
 
                 <Search 
                     searchTerm={searchTerm}
+                    searchName={searchName}
                     handleSearchChange={this.handleSearchChange}
                 />
             
