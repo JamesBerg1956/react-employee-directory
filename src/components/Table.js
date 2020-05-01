@@ -4,6 +4,8 @@ import React, { Component } from "react";
 import Tr from "./Tr"
 // import Thead component
 import Thead from "./Thead"
+// import Search component
+import Search from "./Search"
 
 // START Tale class component
 class Table extends Component{
@@ -31,16 +33,23 @@ class Table extends Component{
     // START Table class render method
     render() {
         return (
-            <table>
-                <thead>
-                    <Thead columns={this.state.columns} />
-                </thead>
-                <tbody>
-                    {this.state.employees.map(employee => (
-                      <Tr firstName={employee.first_name} lastName={employee.last_name} role={employee.role} salary={employee.salary} department={employee.department}/> 
-                    ))}
-                </tbody>
-            </table>
+            
+            <React.Fragment>
+
+                <Search />
+            
+                <table>
+                    <thead>
+                        <Thead columns={this.state.columns} />
+                    </thead>
+                    <tbody>
+                        {this.state.employees.map(employee => (
+                        <Tr firstName={employee.first_name} lastName={employee.last_name} role={employee.role} salary={employee.salary} department={employee.department}/> 
+                        ))}
+                    </tbody>
+                </table>
+                
+            </React.Fragment>
         );
     }
     // END Table class render method
