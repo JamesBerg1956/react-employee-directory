@@ -15,6 +15,7 @@ class Table extends Component{
         
         // pass props to base class constructor
         super(props);
+        this.handleSearchChange = this.handleSearchChange.bind(this);
 
     }
     // END Table class component constructor
@@ -22,21 +23,31 @@ class Table extends Component{
     // START define state objects
     state = {
         employees: this.props.employees,
-        columns: Object.keys(this.props.employees[0])
+        columns: Object.keys(this.props.employees[0]),
+        searchTerm: ''
     };
     // END define state objects
 
-    // TODO: create HandleSearch method
+    // START handleSearch method
+    handleSearchChange(searchTerm) {
+        this.setState({searchTerm});
+    }
 
     // TODO: create HandleSort method
 
     // START Table class render method
     render() {
+
+        const searchTerm = this.state.searchTerm
+
         return (
-            
+
             <React.Fragment>
 
-                <Search />
+                <Search 
+                    searchTerm={searchTerm}
+                    handleSearchChange={this.handleSearchChange}
+                />
             
                 <table>
                     <thead>
