@@ -30,8 +30,22 @@ class Table extends Component{
 
     // START handleSearch method
     handleSearchChange(searchTerm) {
-        this.setState({searchTerm});
+
+        // set state to input value
+        this.setState({searchTerm});    
+
+        // if the search term is not null
+        if(searchTerm){
+            // filter this.state.employees to include only searchTerm
+            this.setState({employees: this.props.employees.filter(employee => employee.first_name.includes(searchTerm))});
+        }
+        else {
+            // set state of employees back to passed prop
+            this.setState({employees: this.props.employees});
+        }
+        
     }
+    // END handleSearch method
 
     // TODO: create HandleSort method
 
