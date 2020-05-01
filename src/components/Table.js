@@ -29,7 +29,9 @@ class Table extends Component{
     // END define state objects
 
     // START handleSearch method
-    handleSearchChange(searchTerm) {
+    handleSearchChange(event) {
+
+        const searchTerm = event.target.value;
 
         // set state to input value
         this.setState({searchTerm});    
