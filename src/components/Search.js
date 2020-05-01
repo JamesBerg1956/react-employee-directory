@@ -9,7 +9,7 @@ class Search extends React.Component{
     }
 
     handleChange(e){
-        this.props.handleSearchChange(e.target.value);
+        this.props.handleSearchChange(e);
     }
 
     render(){
